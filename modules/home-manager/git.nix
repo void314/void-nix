@@ -5,16 +5,20 @@ in
 {
   programs.git = {
     enable = true;
-    userName = cfg.full_name;
-    userEmail = cfg.email_address;
     lfs.enable = true;
-    extraConfig = {
+    settings = {
+      user = {
+        name = cfg.full_name;
+        email = cfg.email_address;
+      };
       credential.helper = "store";
       # Fix for read-only filesystem issues with Git LFS
-      filter.lfs.clean = "git-lfs clean -- %f";
-      filter.lfs.smudge = "git-lfs smudge -- %f";
-      filter.lfs.process = "git-lfs filter-process";
-      filter.lfs.required = true;
+      filter.lfs = {
+        clean = "git-lfs clean -- %f";
+        smudge = "git-lfs smudge -- %f";
+        process = "git-lfs filter-process";
+        required = true;
+      };
     };
   };
 
