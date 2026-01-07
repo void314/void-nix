@@ -49,5 +49,25 @@
           };
         };
     };
+
+    homeManagerModules = {
+      default =
+        {
+          config,
+          lib,
+          pkgs,
+          ...
+        }:
+        {
+          imports = [
+            (import ./modules/home-manager/default.nix inputs)
+          ];
+
+          options.omarchy = (import ./config.nix lib).omarchyOptions;
+          config = {
+            nixpkgs.config.allowUnfree = true;
+          };
+        };
+    };
   };
 }
