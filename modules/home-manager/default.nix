@@ -32,6 +32,7 @@ let
 in
 {
   imports = [
+    inputs.nix-colors.homeManagerModules.default
     (import ./ghostty.nix)
     (import ./btop.nix)
     (import ./direnv.nix)
