@@ -2,7 +2,7 @@
   description = "NixOS configuration for Void314 Linux";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # https://github.com/Misterio77/nix-colors.git 
     nix-colors.url = "github:misterio77/nix-colors";
@@ -25,6 +25,7 @@
       nixpkgs,
       nix-colors,
       home-manager,
+      nur,
   }:
   {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
