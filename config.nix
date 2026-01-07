@@ -3,10 +3,12 @@ lib: {
     full_name = lib.mkOption {
       type = lib.types.str;
       description = "Main user's full name";
+      default = "Void User";
     };
     email_address = lib.mkOption {
       type = lib.types.str;
       description = "Main user's email address";
+      default = "void@example.com";
     };
     theme = lib.mkOption {
       type = lib.types.either (lib.types.enum [
